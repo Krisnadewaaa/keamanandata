@@ -27,6 +27,7 @@ use App\Http\Controllers\LaporanPDFController;
 use App\Http\Controllers\PublikController;
 use App\Http\Controllers\cs\MerchandiseController;
 use App\Http\Controllers\cs\PointRewardController;
+use App\Http\Controllers\ApiMonitoringController;
 
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -171,6 +172,14 @@ Route::middleware([\App\Http\Middleware\PegawaiMiddleware::class . ':admin'])->g
     Route::get('/admin/profile/edit', [AdminController::class, 'edit'])->name('admin.profile.edit');
     Route::put('/admin/profile/update', [AdminController::class, 'updateProfile'])->name('admin.profile.update');
     Route::post('/admin/profile/update-password-dob', [AdminController::class, 'updatePasswordToDob'])->name('admin.profile.update-password-dob');
+
+    //Route buat monitoring
+    Route::get('/admin/monitoring', [ApiMonitoringController::class, 'index'])->name('admin.monitoring');
+    Route::get('/admin/monitoring/chart/hour', [ApiMonitoringController::class, 'chartPerHour'])->name('admin.monitoring.chart.hour');
+    Route::get('/admin/monitoring/chart/day', [ApiMonitoringController::class, 'chartPerDay'])->name('admin.monitoring.chart.day');
+    Route::post('/admin/monitoring/block', [ApiMonitoringController::class, 'blockIp'])->name('admin.monitoring.block');
+    Route::post('/admin/monitoring/unblock/{ip}', [ApiMonitoringController::class, 'unblockIp'])->name('admin.monitoring.unblock');
+    Route::post('/admin/monitoring/alerts/{id}/read', [ApiMonitoringController::class, 'markAlertRead'])->name('admin.monitoring.alerts.read');
 
     // Organisasi management
     Route::get('/admin/organisasi', [AdminController::class, 'organisasiIndex'])->name('admin.organisasi.index');

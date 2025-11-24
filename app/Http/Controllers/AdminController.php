@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Organisasi;
 use App\Models\Pegawai;
 use App\Models\Role;
+use App\Models\ApiLog;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -353,5 +354,10 @@ class AdminController extends Controller
 
         return redirect()->route('admin.pegawai.index')
                         ->with('success', 'Password pegawai berhasil direset menjadi "password123"');
+    }
+
+    public function monitoring()
+    {
+        return view('admin.monitoring.index');
     }
 }
