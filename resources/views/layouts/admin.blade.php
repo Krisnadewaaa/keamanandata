@@ -145,6 +145,12 @@
                                     <i class="fas fa-users"></i> Pegawai
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('admin.monitoring') ? 'active' : '' }}" 
+                                href="{{ route('admin.monitoring') }}">
+                                    <i class="fas fa-shield-alt"></i> Monitoring API
+                                </a>
+                            </li>
                             <!-- Menu lainnya -->
                         </ul>
                     </div>
