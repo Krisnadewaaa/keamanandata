@@ -105,7 +105,15 @@ class AuthController extends Controller
     $validator = Validator::make($request->all(), [
         'nama'     => 'required|string|max:50',
         'email'    => 'required|email|max:50|unique:pembeli,EMAIL_PEMBELI',
-        'password' => 'required|string|min:6|confirmed',
+        'password' => [
+            'required',
+            'string',
+            'min:8',
+            'confirmed',
+            'regex:/[A-Z]/',
+            'regex:/[a-z]/',
+            'regex:/[0-9]/',
+        ],
     ]);
 
     if ($validator->fails()) {
