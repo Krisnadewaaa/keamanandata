@@ -55,7 +55,11 @@
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
                             <label class="form-check-label" for="terms">
-                                Saya menyetujui <a href="#" class="text-decoration-none">Syarat dan Ketentuan</a> serta <a href="#" class="text-decoration-none">Kebijakan Privasi</a> ReUseMart.
+                                Saya menyetujui 
+                                <a href="{{ route('terms') }}" class="text-decoration-none" target="_blank">Syarat dan Ketentuan</a> 
+                                serta 
+                                <a href="{{ route('privacy') }}" class="text-decoration-none" target="_blank">Kebijakan Privasi</a> 
+                                ReUseMart.
                             </label>
                         </div>
                         

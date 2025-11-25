@@ -6,8 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PembeliController;
-use App\Http\Controllers\PenitipController;
 use App\Http\Controllers\OtpAuthController;
+use App\Http\Controllers\PenitipController;
 use App\Http\Controllers\Pembeli\AlamatPembeliController;
 use App\Http\Controllers\Auth\PasswordResetFormController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
@@ -33,6 +33,8 @@ use App\Http\Controllers\ApiMonitoringController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/terms', function () { return view('legal.terms'); })->name('terms');
+Route::get('/privacy', function () { return view('legal.privacy'); })->name('privacy');
 
 // Product routes
 Route::get('/barang', [BarangController::class, 'index'])->name('barang.index');

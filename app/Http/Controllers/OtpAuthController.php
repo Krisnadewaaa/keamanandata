@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\OtpVerification;
 use App\Models\Pembeli;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail; // ← tambahkan ini
+use App\Mail\OtpMail;
 
 class OtpAuthController extends Controller
 {
